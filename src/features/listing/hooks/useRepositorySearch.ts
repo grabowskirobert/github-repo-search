@@ -2,7 +2,7 @@ import { useInfiniteQuery } from '@tanstack/react-query'
 import searchRepositories from '../api/searchRepositories'
 
 const INITIAL_PAGE = 1
-const INITIAL_PER_PAGE = 10
+const INITIAL_PER_PAGE = 15
 
 const useRepositorySearch = (query: string) => {
   return useInfiniteQuery({

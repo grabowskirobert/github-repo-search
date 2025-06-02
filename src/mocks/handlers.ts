@@ -5,7 +5,7 @@ export const handlers = [
     const url = new URL(request.url)
     const query = url.searchParams.get('q')
     const page = Number(url.searchParams.get('page')) || 1
-    const perPage = Number(url.searchParams.get('per_page')) || 10
+    const perPage = Number(url.searchParams.get('per_page')) || 15
 
     await delay(import.meta.env.MODE === 'test' ? 0 : 150)
 

@@ -2,7 +2,7 @@ import githubClient from '@/api/githubClient'
 import type { GitHubRepositoriesResponse } from './types'
 
 const INITIAL_PAGE = 1
-const INITIAL_PER_PAGE = 10
+const INITIAL_PER_PAGE = 15
 
 const searchRepositories = async (
   query: string,
