@@ -1,13 +1,11 @@
 import githubClient from '@/api/githubClient'
 import type { GitHubRepositoriesResponse } from './types'
 
-const INITIAL_PAGE = 1
-const INITIAL_PER_PAGE = 15
-
 const searchRepositories = async (
   query: string,
-  page = INITIAL_PAGE,
-  perPage = INITIAL_PER_PAGE
+  page: number,
+  perPage: number,
+  signal: AbortSignal
 ): Promise<GitHubRepositoriesResponse> => {
   const response = await githubClient.get('/search/repositories', {
     params: {
@@ -15,6 +13,7 @@ const searchRepositories = async (
       page,
       per_page: perPage,
     },
+    signal,
   })
 
   return response.data

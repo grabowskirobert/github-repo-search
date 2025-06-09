@@ -7,7 +7,8 @@ const INITIAL_PER_PAGE = 15
 const useRepositorySearch = (query: string) => {
   return useInfiniteQuery({
     queryKey: ['repository-search', query],
-    queryFn: ({ pageParam = INITIAL_PAGE }) => searchRepositories(query, pageParam),
+    queryFn: ({ pageParam = INITIAL_PAGE, signal }) =>
+      searchRepositories(query, pageParam, INITIAL_PER_PAGE, signal),
     initialPageParam: INITIAL_PAGE,
     getNextPageParam: (lastPage, allPages) => {
       const totalFetched = allPages.length * INITIAL_PER_PAGE

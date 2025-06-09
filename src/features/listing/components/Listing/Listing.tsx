@@ -5,7 +5,7 @@ import { useDebounce } from 'use-debounce'
 
 const Listing: FunctionComponent = () => {
   const [query, setQuery] = useState('')
-  const [debouncedSearch] = useDebounce(query, 300)
+  const [debouncedQuery] = useDebounce(query, 300)
 
   return (
     <Box height='100vh' bg='gray.100'>
@@ -23,7 +23,7 @@ const Listing: FunctionComponent = () => {
               placeholder='Search repositories...'
               my={4}
             />
-            <VirtualRepositoryList query={debouncedSearch} />
+            <VirtualRepositoryList query={debouncedQuery} />
           </Container>
         </Box>
       </Container>
