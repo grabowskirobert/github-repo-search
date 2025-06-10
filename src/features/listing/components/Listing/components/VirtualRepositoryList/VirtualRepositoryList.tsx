@@ -18,7 +18,7 @@ const VirtualRepositoryList: FunctionComponent<Props> = ({ query }) => {
   const { data, fetchNextPage, isFetching, isLoading, error, hasNextPage } =
     useRepositorySearch(query)
   const parentRef = useRef<HTMLDivElement>(null)
-  const flatData = useMemo(() => data?.pages.flatMap((page) => page.items) || [], [data])
+  const flatData = useMemo(() => data?.flatData || [], [data?.flatData])
 
   const isRepositoryListEmpty = !isFetching && flatData.length === 0 && query
 
@@ -40,7 +40,7 @@ const VirtualRepositoryList: FunctionComponent<Props> = ({ query }) => {
     if (lastItem.index >= flatData.length - ELEMENTS_UNTIL_LOAD) {
       fetchNextPage()
     }
-  }, [virtualItems])
+  }, [virtualItems.length, hasNextPage, isFetching, flatData.length])
 
   if (error) {
     return <ErrorDisplay errorMessage={error.message} />
