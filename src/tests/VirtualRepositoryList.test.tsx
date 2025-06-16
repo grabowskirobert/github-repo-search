@@ -1,6 +1,6 @@
 import { render, screen, waitFor } from '@testing-library/react'
 import { describe, expect, test, vi } from 'vitest'
-import Provider from '@/providers/ChakraProvider/Provider'
+import Provider from '../../filter/providers/ChakraProvider/Provider'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import VirtualRepositoryList from '../features/listing/components/Listing/components/VirtualRepositoryList'
 
