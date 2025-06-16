@@ -1,4 +1,4 @@
-import githubClient from '../../api/githubClient'
+import githubClient from './githubClient'
 import type { GitHubRepositoriesResponse } from './types'
 
 const searchRepositories = async (
